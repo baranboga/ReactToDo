@@ -44,13 +44,13 @@ export const TodoWrapper = () => {
 
   const toggleComplete = (id, value,task) => {
     const newvalue = !value;
-
     console.log(newvalue);
     putiscompleted(id, newvalue,task)
       .then((response) => {
         console.log(response);
       })
       .catch(() => "");
+      window.location.href = "/"
   };
 
   const editTodo = () => {
