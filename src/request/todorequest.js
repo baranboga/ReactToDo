@@ -81,3 +81,19 @@ export const deletetodoo = (id) => {
 
   return dataPromise;
 };
+
+export const sendTelegramMessage = async (botToken, chatId, message) => {
+  console.log(botToken,chatId,message)
+  const apiUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
+
+  try {
+    const response = await axios.post(apiUrl, {
+      chat_id: chatId,
+      text: message,
+    });
+  
+    console.log('Message sent successfully:', response.data);
+  } catch (error) {
+    console.error('Error sending message to Telegram:', error.response.data);
+  }
+};
